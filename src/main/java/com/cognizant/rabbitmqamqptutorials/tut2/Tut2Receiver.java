@@ -22,13 +22,13 @@ public class Tut2Receiver {
         doWork(in);
         watch.stop();
         System.out.println("instance " + this.instance +
-                " [x] Done in " + watch.getTotalTimeSeconds() + "s");
+                " [x] Done "+in+"in " + watch.getTotalTimeSeconds() + "s");
     }
 
     private void doWork(String in) throws InterruptedException {
         for (char ch : in.toCharArray()) {
             if (ch == '.') {
-                Thread.sleep(5000);
+                Thread.sleep(1000);
             }
         }
     }

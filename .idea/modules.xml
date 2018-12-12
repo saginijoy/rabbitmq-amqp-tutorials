@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.cognizant.rabbitmq-amqp-tutorials.iml" filepath="$PROJECT_DIR$/.idea/modules/com.cognizant.rabbitmq-amqp-tutorials.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.cognizant.rabbitmq-amqp-tutorials.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.cognizant.rabbitmq-amqp-tutorials.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.cognizant.rabbitmq-amqp-tutorials.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.cognizant.rabbitmq-amqp-tutorials.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rabbitmq-amqp-tutorials.iml" filepath="$PROJECT_DIR$/rabbitmq-amqp-tutorials.iml" />
+    </modules>
+  </component>
+</project>

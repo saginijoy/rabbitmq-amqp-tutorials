@@ -16,9 +16,18 @@ public class RabbitCommandLineRunner implements CommandLineRunner {
     private final int duration;
 
     RabbitCommandLineRunner(final ConfigurableApplicationContext context,
-                            @Value("${tutorial.client.duration}") final int duration) {
+                            @Value("${tutorial.client.duration}") final int duration,
+                            @Value("${spring.profiles.active}") final String profileName) {
         this.context = context;
-        this.duration = duration;
+
+
+        if("tut2, work-queues,sender".equals(profileName))    {
+            this.duration = 10000;
+        }   else if("tut2, work-queues,receiver".equals(profileName))   {
+            this.duration = 10000;
+        }   else    {
+            this.duration = 10000;
+        }
     }
 
 

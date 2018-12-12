@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework.amqp:spring-rabbit:2.1.2.RELEASE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.amqp/spring-rabbit/2.1.2.RELEASE/3fcefec578fcbe25077653273280266e912f3721/spring-rabbit-2.1.2.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.amqp/spring-rabbit/2.1.2.RELEASE/2c60c3386a06f921df329c2fa14831c34f0068f/spring-rabbit-2.1.2.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
