@@ -1,34 +1,37 @@
 package com.cognizant.rabbitmqamqptutorials.tut3;
 
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
+import org.springframework.amqp.core.FanoutExchange;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-import java.util.concurrent.TimeoutException;
+import java.util.concurrent.atomic.AtomicInteger;
 
-@Component
-@Profile("tut3-publisher")
-final class Tut3Publisher {
+public class Tut3Publisher {
+
     @Autowired
-    ConnectionFactory connectionFactory;
-    public static  final String  EXCHANGE_NAME="logs2";
+    private RabbitTemplate template;
 
+    @Autowired
+    private FanoutExchange fanout;
 
-    @Scheduled(fixedDelay = 8000, initialDelay = 2000)
-    public void send() throws IOException, TimeoutException {
-        Connection connection = connectionFactory.newConnection();
-        Channel channel = connection.createChannel();
-            channel.exchangeDeclare(EXCHANGE_NAME, "fanout");
+    AtomicInteger dots = new AtomicInteger(0);
 
-            String message = "Message to exchange";
+    AtomicInteger count = new AtomicInteger(0);
 
-            channel.basicPublish(EXCHANGE_NAME, "", null, message.getBytes("UTF-8"));
-            System.out.println(" [x] Sent '" + message + "'");
-
+    @Scheduled(fixedDelay = 1000, initialDelay = 500)
+    public void send() {
+        StringBuilder builder = new StringBuilder("Hello");
+        if (dots.getAndIncrement() == 3) {
+            dots.set(1);
+        }
+        for (int i = 0; i < dots.get(); i++) {
+            builder.append('.');
+        }
+        builder.append(count.incrementAndGet());
+        String message = builder.toString();
+        template.convertAndSend(fanout.getName(), "", message);
+        System.out.println(" [x] Sent '" + message + "'");
     }
+
 }
